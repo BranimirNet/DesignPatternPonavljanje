@@ -33,4 +33,21 @@ foreach ($cars as $car) {
 
 echo "<hr>";
 echo "<br>Ukupan broj proizvedenih automobila: " . $cars->count() . "<br>";
+
+echo"<h3>Rucno iteriranje bez foreach petlje:</h3>";
+
+$cars->rewind();
+while ($cars->valid()) {
+    $car = $cars->current();
+    echo $car->info() . "<br>";
+    $cars->next();
+}
+
+$cars->rewind();
+
+$firstCar = $cars->current();
+echo "<br>Prvi proizvedeni automobil je: " . $firstCar->info() . "<br>";
+
+$lastCar = $cars->last();
+echo "<br>Zadnji proizvedeni automobil je: " . $lastCar->info() . "<br>";
 ?>
